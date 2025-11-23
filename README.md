@@ -11,8 +11,6 @@ def load_dictionary(path: str) -> set[str]:
                 w = unicodedata.normalize("NFC", line.strip())
                 if not w:
                     continue
-                # OPTIONAL: strip annotations in parentheses → keep the surface form
-                # e.g., "အခန်း (အိမ်အခန်း၊ စာအုပ်အခန်း)" → "အခန်း"
                 w = re.sub(r"\s*\(.*?\)\s*$", "", w)
                 if w:
                     words.append(w)
